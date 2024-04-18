@@ -5,4 +5,10 @@
     <string name="homeScreen">Home Screen</string>
     <string name="buttonEnter">Enter</string>
     <string name="renetest">ReneTest</string>
+    <string name="createinstructions">Please complete all fields.</string>
+    <string name="itemname">Name</string>
+    <string name="itemcalories">Total Calories</string>
+    <string name="itemservings">Servings</string>
+    <string name="itemdaysleft">Days Left Before Expiration</string>
+    <string name="Done">Done</string>
 </resources>

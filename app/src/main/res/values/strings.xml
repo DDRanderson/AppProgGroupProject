@@ -11,4 +11,8 @@
     <string name="itemservings">Servings</string>
     <string name="itemdaysleft">Days Left Before Expiration</string>
     <string name="Done">Done</string>
+    <string name="loginButton">Login</string>
+    <string name="johnDoe">johnDoe123@gmail.com</string>
+    <string name="leftOverTracker">Leftover Tracker!</string>
+    <string name="stayFresh">Stay Fresh!</string>
 </resources>

@@ -3,6 +3,7 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="homeScreen">Home Screen</string>
+    <string name="Register">Register</string>
     <string name="buttonEnter">Enter</string>
     <string name="renetest">ReneTest</string>
     <string name="createinstructions">Please complete all fields.</string>
@@ -15,4 +16,9 @@
     <string name="johnDoe">johnDoe123@gmail.com</string>
     <string name="leftOverTracker">Leftover Tracker!</string>
     <string name="stayFresh">Stay Fresh!</string>
+    <string name="acctRegistration">Account Registration</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="fillVals">Please fill in all data below</string>
+    <string name="submit">Submit</string>
 </resources>

@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class MainActivity extends ComponentActivity {
-    private Button button;
+    //private Button button;
     private AssetManager assets;
 
     @Override
@@ -27,9 +27,10 @@ public class MainActivity extends ComponentActivity {
     }
 
     private void setupButtons() {
-        button = (Button) findViewById(R.id.login);
+        Button button1 = (Button) findViewById(R.id.login);
+        Button button2 = (Button) findViewById(R.id.register);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 EditText userText = (EditText) findViewById (R.id.inputName);
                 EditText passText = (EditText) findViewById(R.id.inputPassword);
@@ -47,6 +48,15 @@ public class MainActivity extends ComponentActivity {
                     userText.setError("Incorrect username");
                     passText.setError("Incorrect password");
                 }
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+                //intent.putExtra("id",id);
+                //intent.putExtra("account", account);
+                startActivity(intent);
             }
         });
     }

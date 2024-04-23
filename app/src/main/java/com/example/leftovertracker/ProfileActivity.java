@@ -18,7 +18,7 @@ public class ProfileActivity extends ComponentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.profile);
+        setContentView(R.layout.homescreen);
         assets = getAssets();
         //setupProfile();
         setupProfile2();
@@ -53,9 +53,9 @@ public class ProfileActivity extends ComponentActivity {
             System.out.println("Error: " + e.getMessage());
         }
         TextView name = (TextView) findViewById(R.id.textView5);
-        TextView email = (TextView) findViewById(R.id.textView1);
+        //TextView email = (TextView) findViewById(R.id.textView1);
         name.setText(profileInfo.getName());
-        email.setText(profileInfo.getEmail());
+        //email.setText(profileInfo.getEmail());
     }
 
     private void setupProfile2(){
@@ -64,8 +64,8 @@ public class ProfileActivity extends ComponentActivity {
             profileInfo = intent.getParcelableExtra("account",Account.class);
         }
         TextView name = (TextView) findViewById(R.id.textView5);
-        TextView email = (TextView) findViewById(R.id.textView1);
+        //TextView email = (TextView) findViewById(R.id.textView1);
         name.setText(profileInfo.getName());
-        email.setText(profileInfo.getEmail());
+        //email.setText(profileInfo.getEmail());
     }
 }

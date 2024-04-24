@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.activity.ComponentActivity;
@@ -22,6 +25,7 @@ public class ProfileActivity extends ComponentActivity {
         assets = getAssets();
         //setupProfile();
         setupProfile2();
+        setupButtons();
     }
 
     public void setupProfile(){
@@ -67,5 +71,17 @@ public class ProfileActivity extends ComponentActivity {
         //TextView email = (TextView) findViewById(R.id.textView1);
         name.setText(profileInfo.getName());
         //email.setText(profileInfo.getEmail());
+    }
+
+    private void setupButtons() {
+        ImageButton buttonAddRecipe = (ImageButton) findViewById(R.id.buttonAddRecipe);
+
+        buttonAddRecipe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (ProfileActivity.this, CreateActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

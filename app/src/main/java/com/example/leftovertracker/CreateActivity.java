@@ -39,6 +39,7 @@ public class CreateActivity extends ComponentActivity {
                     if(id > 0){
                         finish();
                     }
+
                 }
                 else {
                     itemName.setText("");

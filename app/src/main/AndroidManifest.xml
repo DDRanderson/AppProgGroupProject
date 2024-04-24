@@ -26,6 +26,11 @@
             android:label="profile_activity"
             android:theme="@style/Theme.ActivitiyViews"
             android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:label="register_activity"
+            android:theme="@style/Theme.ActivitiyViews"
+            android:exported="false" />
     </application>
 
 </manifest>

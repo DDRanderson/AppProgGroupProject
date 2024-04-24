@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constriantLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/leftoverTrackerColor">
+
+    <EditText
+        android:id="@+id/regUserEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:ems="10"
+        android:fontFamily="monospace"
+        android:inputType="text"
+        android:text="@string/username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.781"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accountReg" />
+
+    <Button
+        android:id="@+id/login3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF757A"
+        android:fontFamily="mono"
+        android:text="@string/submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regUserEdit"
+        app:layout_constraintVertical_bias="0.729"
+        tools:fontFamily="monospace" />
+
+    <TextView
+        android:id="@+id/regPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:fontFamily="monospace"
+        android:text="@string/password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regUser"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/regEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="@string/email"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.208"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regName"
+        app:layout_constraintVertical_bias="0.204" />
+
+    <EditText
+        android:id="@+id/regPassEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:ems="10"
+        android:fontFamily="monospace"
+        android:inputType="text"
+        android:text="@string/password"
+        app:layout_constraintBottom_toBottomOf="@+id/regPass"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.133"
+        app:layout_constraintStart_toEndOf="@+id/regPass"
+        app:layout_constraintTop_toTopOf="@+id/regPass" />
+
+    <EditText
+        android:id="@+id/regEmailEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:ems="10"
+        android:fontFamily="monospace"
+        android:inputType="text"
+        android:text="@string/email"
+        app:layout_constraintBottom_toBottomOf="@+id/regEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintStart_toEndOf="@+id/regEmail"
+        app:layout_constraintTop_toTopOf="@+id/regEmail"
+        app:layout_constraintVertical_bias="0.538" />
+
+    <TextView
+        android:id="@+id/regUser"
+        android:layout_width="68dp"
+        android:layout_height="22dp"
+        android:layout_marginEnd="40dp"
+        android:fontFamily="monospace"
+        android:text="@string/username"
+        app:layout_constraintBottom_toBottomOf="@+id/regUserEdit"
+        app:layout_constraintEnd_toStartOf="@+id/regUserEdit"
+        app:layout_constraintHorizontal_bias="0.94"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/regUserEdit"
+        app:layout_constraintVertical_bias="0.608" />
+
+    <EditText
+        android:id="@+id/regNameEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:fontFamily="monospace"
+        android:inputType="text"
+        android:text="@string/name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.632" />
+
+    <TextView
+        android:id="@+id/regName"
+        android:layout_width="39dp"
+        android:layout_height="21dp"
+        android:layout_marginEnd="40dp"
+        android:fontFamily="monospace"
+        android:text="@string/name"
+        app:layout_constraintBottom_toBottomOf="@+id/regNameEdit"
+        app:layout_constraintEnd_toStartOf="@+id/regNameEdit"
+        app:layout_constraintHorizontal_bias="0.927"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/regNameEdit" />
+
+    <TextView
+        android:id="@+id/accountReg"
+        android:layout_width="293dp"
+        android:layout_height="110dp"
+        android:fontFamily="monospace"
+        android:text="@string/acctRegistration"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.072"
+        tools:gravity="center" />
+
+    <TextView
+        android:id="@+id/fillData"
+        android:layout_width="304dp"
+        android:layout_height="37dp"
+        android:layout_marginBottom="51dp"
+        android:text="@string/fillVals"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/regUserEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accountReg"
+        app:layout_constraintVertical_bias="1.0"
+        tools:gravity="center" />
+</androidx.constraintlayout.widget.ConstraintLayout>

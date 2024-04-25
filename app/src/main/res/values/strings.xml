@@ -21,4 +21,6 @@
     <string name="email">Email</string>
     <string name="fillVals">Please fill in all data below</string>
     <string name="submit">Submit</string>
+    <string name="listName">listname</string>
+    <string name="daysLeft">#days</string>
 </resources>

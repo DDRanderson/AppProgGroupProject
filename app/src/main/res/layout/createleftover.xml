@@ -46,7 +46,8 @@
             android:id="@+id/itemCalories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/itemcalories" />
+            android:hint="@string/itemcalories"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -62,7 +63,8 @@
             android:id="@+id/itemServings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/itemservings" />
+            android:hint="@string/itemservings"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -80,7 +82,8 @@
             android:id="@+id/itemDaysLeft"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/itemdaysleft" />
+            android:hint="@string/itemdaysleft"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

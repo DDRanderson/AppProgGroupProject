@@ -15,39 +15,42 @@
     android:background="@color/leftoverTrackerColor">
 
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="12dp"
+        tools:layout_editor_absoluteY="1dp">
 
         <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/listImage"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:id="@+id/listImage"
-            android:src="@drawable/add"
-            android:scaleType="centerCrop"
             android:layout_marginStart="10dp"
-            android:layout_marginBottom="10dp"
             android:layout_marginTop="100dp"
-            app:shapeAppearanceOverlay="@style/roundedImageViewRounded"/>
+            android:layout_marginBottom="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/add"
+            app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
 
         <TextView
+            android:id="@+id/listName"
             android:layout_width="120dp"
             android:layout_height="30dp"
-            android:id="@+id/listName"
-            android:text="@string/listName"
-            android:textSize="20sp"
-            android:layout_marginTop="110dp"
             android:layout_marginStart="30dp"
-            android:layout_toEndOf="@id/listImage"/>
+            android:layout_marginTop="110dp"
+            android:layout_toEndOf="@id/listImage"
+            android:text="@string/listName"
+            android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/listTime"
             android:layout_width="80dp"
             android:layout_height="30dp"
-            android:id="@+id/listTime"
-            android:text="@string/daysLeft"
-            android:textSize="16sp"
-            android:layout_toEndOf="@id/listName"
+            android:layout_marginStart="100dp"
             android:layout_marginTop="110dp"
-            android:layout_marginStart="100dp"/>
+            android:layout_toEndOf="@id/listName"
+            android:text="@string/daysLeft"
+            android:textSize="16sp" />
 
     </RelativeLayout>
 
@@ -131,5 +134,19 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         tools:fontFamily="monospace" />
+
+    <ImageButton
+        android:id="@+id/trashButton"
+        android:layout_width="78dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="395dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="3dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAddRecipe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        app:srcCompat="@drawable/trashmanImage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

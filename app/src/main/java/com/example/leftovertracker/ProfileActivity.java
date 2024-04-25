@@ -30,6 +30,7 @@ public class ProfileActivity extends ComponentActivity {
         //setupProfile();
         setupProfile2();
         setupButtons();
+        //generateList(); hopefully this will populate the display list at homescreen creation every time
     }
 
     public void setupProfile(){

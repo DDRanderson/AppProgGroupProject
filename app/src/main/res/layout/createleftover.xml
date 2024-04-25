@@ -4,13 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout2"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/leftoverTrackerColor">>
 
     <TextView
         android:id="@+id/create_instructions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
+        android:fontFamily="monospace"
+        android:shadowColor="#3C3333"
         android:text="@string/createinstructions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -30,6 +33,7 @@
             android:id="@+id/itemName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
             android:hint="@string/itemname" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -46,6 +50,7 @@
             android:id="@+id/itemCalories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
             android:hint="@string/itemcalories"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -63,6 +68,7 @@
             android:id="@+id/itemServings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
             android:hint="@string/itemservings"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -82,6 +88,7 @@
             android:id="@+id/itemDaysLeft"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="monospace"
             android:hint="@string/itemdaysleft"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -91,6 +98,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="88dp"
+        android:fontFamily="monospace"
+        android:backgroundTint="#FF757A"
         android:text="@string/Done"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

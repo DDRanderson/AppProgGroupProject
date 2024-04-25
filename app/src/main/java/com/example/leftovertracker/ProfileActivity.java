@@ -19,6 +19,10 @@ public class ProfileActivity extends ComponentActivity {
     private Account profileInfo;
     private AssetManager assets;
     @Override
+
+    /*
+    * this is essentially the Home Screen
+    * */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homescreen);

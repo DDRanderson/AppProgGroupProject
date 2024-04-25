@@ -14,23 +14,36 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class MainActivity extends ComponentActivity {
-    //private Button button;
     private AssetManager assets;
 
+    /*
+     * opens program, loads "login.xml"
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
         assets = getAssets();
-        Toast.makeText(this, "Hello Worlds", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Hello Worlds", Toast.LENGTH_SHORT).show();
         setupButtons();
     }
 
+    
+    /*
+    * sets up two buttons so they do stuff
+    *
+    * loginButton checks "login.txt" in assets
+    *   if account info is found, will load "ProfileActivity"
+    *   else will display error text for incorrect username/password
+    *
+    * registerButton will load "RegisterActivity"
+    *
+    * */
     private void setupButtons() {
-        Button button1 = (Button) findViewById(R.id.login);
-        Button button2 = (Button) findViewById(R.id.register);
+        Button loginButton = (Button) findViewById(R.id.login);
+        Button registerButton = (Button) findViewById(R.id.register);
 
-        button1.setOnClickListener(new View.OnClickListener() {
+        loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 EditText userText = (EditText) findViewById (R.id.inputName);
                 EditText passText = (EditText) findViewById(R.id.inputPassword);
@@ -50,7 +63,7 @@ public class MainActivity extends ComponentActivity {
                 }
             }
         });
-        button2.setOnClickListener(new View.OnClickListener() {
+        registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
@@ -60,38 +73,11 @@ public class MainActivity extends ComponentActivity {
             }
         });
     }
-    /*private int authenticate(String username, String password){
-        Scanner scan;
-        String str = "";
-        String [] arr = null;
-        boolean authenticated = false;
-        int id = -1;
 
-        try {
-            scan = new Scanner(assets.open("login.txt"));
-            while(scan.hasNext()){
-
-                //EditText t = (EditText) findViewById(R.id.inputName);
-
-                str = scan.nextLine();
-                //t.setText(str);
-                arr = str.split(",");
-                if(username.equalsIgnoreCase(arr[1]) && password.equals(arr[2])){
-                    id = Integer.parseInt(arr[0]);
-                    authenticated = true;
-                    break;
-                }
-            }
-            scan.close();
-        }
-        catch(IOException e){
-            System.out.println("Error: " + e.getMessage());
-        }
-
-
-        return id;
-    }*/
-
+    /*
+    * method that checks if username and password are correct
+    *   looks in "login.txt" found in assets folder
+    * */
     private Account authenticate(String username, String password){
         Scanner scan;
         String str = "";

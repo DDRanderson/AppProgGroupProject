@@ -5,7 +5,6 @@ import android.content.res.AssetManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -16,6 +15,7 @@ import java.util.Scanner;
 
 public class ProfileActivity extends ComponentActivity {
 
+
     private Account profileInfo;
     private AssetManager assets;
     @Override
@@ -25,6 +25,7 @@ public class ProfileActivity extends ComponentActivity {
     * */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.homescreen);
         assets = getAssets();
         //setupProfile();

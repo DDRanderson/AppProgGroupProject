@@ -10,10 +10,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.ComponentActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ProfileActivity extends ComponentActivity {
@@ -21,6 +25,8 @@ public class ProfileActivity extends ComponentActivity {
 
     private Account profileInfo;
     private AssetManager assets;
+
+    ArrayList<LeftoverList> LeftoverLists = new ArrayList<>();
     @Override
 
     /*
@@ -34,7 +40,22 @@ public class ProfileActivity extends ComponentActivity {
         //setupProfile();
         setupProfile2();
         setupButtons();
+
+        RecyclerView recyclerView = findViewById(R.id.mRecyclerView);
+        setupLeftOverList();
+        leftoverAdapter adapter = new leftoverAdapter(this, LeftoverLists);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this ));
         //generateList(); hopefully this will populate the display list at homescreen creation every time
+    }
+
+    private void setupLeftOverList(){
+        String[] leftOverNames = getResources().getStringArray(R.array.leftover_foods_full_txt);
+        String[] leftOverDays = getResources().getStringArray(R.array.num_days_to_eat);
+
+        for(int i = 0; i < leftOverNames.length; i++){
+            LeftoverLists.add(new LeftoverList(leftOverNames[i], leftOverDays[i]));
+        }
     }
 
     public void setupProfile(){

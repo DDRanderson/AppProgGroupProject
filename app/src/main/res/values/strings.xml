@@ -23,4 +23,34 @@
     <string name="submit">Submit</string>
     <string name="listName">listname</string>
     <string name="daysLeft">#days</string>
+
+    <string name="leftover_name">Pasta</string>
+    <string name="days_eat">5 days</string>
+
+    <string-array name="leftover_foods_full_txt">
+        <item>Pasta</item>
+        <item>Spaghetti</item>
+        <item>Ravioli</item>
+        <item>Mashed Potatoes</item>
+        <item>Chicken Wings</item>
+        <item>Burrito</item>
+        <item>Cheese Burger</item>
+        <item>Dumplings</item>
+        <item>Lasagna</item>
+        <item>Tacos</item>
+    </string-array>
+
+    <string-array name="num_days_to_eat">
+        <item>5 days</item>
+        <item>4 days</item>
+        <item>2 days</item>
+        <item>5 days</item>
+        <item>7 days</item>
+        <item>3 days</item>
+        <item>1 day</item>
+        <item>3 days</item>
+        <item>7 days</item>
+        <item>5 days</item>
+    </string-array>
+
 </resources>

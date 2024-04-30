@@ -17,15 +17,29 @@ public class MainActivity extends ComponentActivity {
     //private Button button;
     private AssetManager assets;
 
+    /*
+     * opens program, loads "login.xml"
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
         assets = getAssets();
-        Toast.makeText(this, "Hello Worlds", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Hello Worlds", Toast.LENGTH_SHORT).show();
         setupButtons();
     }
 
+
+    /*
+    * sets up two buttons so they do stuff
+    *
+    * loginButton checks "login.txt" in assets
+    *   if account info is found, will load "ProfileActivity"
+    *   else will display error text for incorrect username/password
+    *
+    * registerButton will load "RegisterActivity"
+    *
+    * */
     private void setupButtons() {
         Button button1 = (Button) findViewById(R.id.login);
         Button button2 = (Button) findViewById(R.id.register);
@@ -88,10 +102,10 @@ public class MainActivity extends ComponentActivity {
             System.out.println("Error: " + e.getMessage());
         }
 
-
-        return id;
-    }*/
-
+    /*
+    * method that checks if username and password are correct
+    *   looks in "login.txt" found in assets folder
+    * */
     private Account authenticate(String username, String password){
         Scanner scan;
         String str = "";

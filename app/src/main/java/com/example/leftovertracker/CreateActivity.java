@@ -34,10 +34,13 @@ public class CreateActivity extends ComponentActivity {
                 EditText daysLeft = (EditText) findViewById(R.id.itemDaysLeft);
 
                 if(validateItemInfo()){
+                    //need something to check for when createItem returns -1 because it will still create an item
                     id = createItem();
 
                     if(id > 0){
                         finish();
+                        //what does finish() do? might need to have it generate Home Screen again rather than just "go back"
+
                     }
 
                 }
@@ -82,7 +85,7 @@ public class CreateActivity extends ComponentActivity {
         String str = null;
         String[] arr;
 
-        // figuring out if file exists
+        // checking if file doesn't exist
         if(!f.exists()) {
             id = 1;
 
@@ -115,6 +118,9 @@ public class CreateActivity extends ComponentActivity {
                 w = new OutputStreamWriter(openFileOutput("itemsList.txt", MODE_APPEND));
                 w.append("\n" + id + "," + itemName + "," + itemCalories + "," + itemServings + "," + itemDaysLeft);
                 w.close();
+
+                //TODO
+                //add a check to make sure we aren't accidentally adding an empty newline char at the beginning of the file
 
             } catch (IOException e) {
                 Toast.makeText(getBaseContext(), "IOException: " + e.getMessage(), Toast.LENGTH_SHORT).show();

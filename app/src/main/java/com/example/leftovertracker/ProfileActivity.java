@@ -46,12 +46,20 @@ public class ProfileActivity extends ComponentActivity {
         leftoverAdapter adapter = new leftoverAdapter(this, LeftoverLists);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this ));
-        //generateList(); hopefully this will populate the display list at homescreen creation every time
     }
 
     private void setupLeftOverList(){
-        String[] leftOverNames = getResources().getStringArray(R.array.leftover_foods_full_txt);
-        String[] leftOverDays = getResources().getStringArray(R.array.num_days_to_eat);
+        /* TODO
+        *  create two String arrays from the itemList in memory
+        *  one String array will have the item names
+        *  the second String array will have the numbers of days left
+        * */
+
+        String[] leftOverNames = getLeftoverNames();
+        String[] leftOverDays = getLeftoverDays();
+
+        //String[] leftOverNames = getResources().getStringArray(R.array.leftover_foods_full_txt);
+        //String[] leftOverDays = getResources().getStringArray(R.array.num_days_to_eat);
 
         for(int i = 0; i < leftOverNames.length; i++){
             LeftoverLists.add(new LeftoverList(leftOverNames[i], leftOverDays[i]));
@@ -148,6 +156,81 @@ public class ProfileActivity extends ComponentActivity {
         } else {
             Toast.makeText(getBaseContext(), "There is no list to clear", Toast.LENGTH_SHORT).show();
         }
+    }
 
+    public String[] getLeftoverNames(){
+        ArrayList<String> listOfNames = new ArrayList<String>();
+        String[] leftOverNames = getResources().getStringArray(R.array.leftover_ex);
+        File f = new File(getFilesDir().getAbsolutePath() + "/itemsList.txt");
+        Scanner scan;
+        String str;
+        String[] arr;
+        String[] retArray;
+
+        // figuring out if file exists
+        if (f.exists()) {
+            try {
+                scan = new Scanner(openFileInput("itemsList.txt"));
+
+                // write names to ArrayList listOfNames
+                while(scan.hasNextLine()) {
+                    str = scan.nextLine();
+                    arr = str.split(",");
+                    listOfNames.add(arr[1]);
+                    retArray = new String[listOfNames.size()];
+                    listOfNames.toArray(retArray);
+                    return retArray;
+                }
+                scan.close();
+                //Toast.makeText(getBaseContext(), "Leftover List Cleared", Toast.LENGTH_LONG).show();
+            } catch (IOException e) {
+                Toast.makeText(getBaseContext(), "IOException: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                return leftOverNames;
+            }
+
+        } else {
+            //display default data
+            Toast.makeText(getBaseContext(), "List Empty", Toast.LENGTH_SHORT).show();
+            return leftOverNames;
+        }
+        return leftOverNames;
+    }
+
+    public String[] getLeftoverDays(){
+        ArrayList<String> listOfDays = new ArrayList<String>();
+        String[] leftOverDays = getResources().getStringArray(R.array.num_days_ex);
+        File f = new File(getFilesDir().getAbsolutePath() + "/itemsList.txt");
+        Scanner scan;
+        String str;
+        String[] arr;
+        String[] retArray;
+
+        // figuring out if file exists
+        if (f.exists()) {
+            try {
+                scan = new Scanner(openFileInput("itemsList.txt"));
+
+                // write days to ArrayList listOfDays
+                while(scan.hasNextLine()) {
+                    str = scan.nextLine();
+                    arr = str.split(",");
+                    listOfDays.add(arr[4]);
+                    retArray = new String[listOfDays.size()];
+                    listOfDays.toArray(retArray);
+                    return retArray;
+                }
+                scan.close();
+                //Toast.makeText(getBaseContext(), "Leftover List Cleared", Toast.LENGTH_LONG).show();
+            } catch (IOException e) {
+                Toast.makeText(getBaseContext(), "IOException: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                return leftOverDays;
+            }
+
+        } else {
+            //display default data
+            Toast.makeText(getBaseContext(), "List Empty", Toast.LENGTH_SHORT).show();
+            return leftOverDays;
+        }
+        return leftOverDays;
     }
 }

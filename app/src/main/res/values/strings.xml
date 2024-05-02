@@ -53,4 +53,12 @@
         <item>5 days</item>
     </string-array>
 
+    <string-array name="leftover_ex">
+        <item>Empty List</item>
+    </string-array>
+
+    <string-array name="num_days_ex">
+        <item>No Days</item>
+    </string-array>
+
 </resources>

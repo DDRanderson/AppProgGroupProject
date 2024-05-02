@@ -47,8 +47,8 @@ public class leftoverAdapter extends RecyclerView.Adapter<leftoverAdapter.MyView
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            tvName = itemView.findViewById(R.id.textView6);
-            tvDays = itemView.findViewById(R.id.textView3);
+            tvName = itemView.findViewById(R.id.rItemName);
+            tvDays = itemView.findViewById(R.id.rDaysLeft);
         }
     }
 }

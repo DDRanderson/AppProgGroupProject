@@ -5,6 +5,7 @@ import android.content.res.AssetManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,6 +47,7 @@ public class ProfileActivity extends ComponentActivity {
         leftoverAdapter adapter = new leftoverAdapter(this, LeftoverLists);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this ));
+
     }
 
     private void setupLeftOverList(){

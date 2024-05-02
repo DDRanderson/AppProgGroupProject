@@ -1,5 +1,6 @@
 package com.example.leftovertracker;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,13 +35,12 @@ public class CreateActivity extends ComponentActivity {
                 EditText daysLeft = (EditText) findViewById(R.id.itemDaysLeft);
 
                 if(validateItemInfo()){
-                    //need something to check for when createItem returns -1 because it will still create an item
                     id = createItem();
 
                     if(id > 0){
-                        finish();
-                        //what does finish() do? might need to have it generate Home Screen again rather than just "go back"
-
+                        //finish();
+                        Intent intent = new Intent(CreateActivity.this, ProfileActivity.class);
+                        startActivity(intent);
                     }
 
                 }
@@ -97,7 +97,22 @@ public class CreateActivity extends ComponentActivity {
             catch(IOException e) {
                 Toast.makeText(getBaseContext(), "IOException: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
+        }
+        else if(f.exists() && isItemListEmpty()){
+            try {
+                scan = new Scanner(openFileInput("itemsList.txt"));
 
+                id = 1;
+
+                scan.close();
+
+                w = new OutputStreamWriter(openFileOutput("itemsList.txt", MODE_PRIVATE));
+                w.write(id + "," + itemName + "," + itemCalories + "," + itemServings + "," + itemDaysLeft);
+                w.close();
+            }
+            catch(IOException e) {
+                Toast.makeText(getBaseContext(), "IOException: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
         }
         else {
             try {
@@ -127,5 +142,21 @@ public class CreateActivity extends ComponentActivity {
             }
         }
         return id;
+    }
+
+    public boolean isItemListEmpty(){
+        Scanner scan;
+
+        try{
+            scan = new Scanner(openFileInput("itemsList.txt"));
+
+            if(!scan.hasNextLine()){
+                scan.close();
+                return true;
+            }
+        } catch(IOException e){
+            Toast.makeText(getBaseContext(), "IOException: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+        return false;
     }
 }

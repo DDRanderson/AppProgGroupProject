@@ -134,20 +134,12 @@ public class ProfileActivity extends ComponentActivity {
     public void clearList() {
         File f = new File(getFilesDir().getAbsolutePath() + "/itemsList.txt");
         OutputStreamWriter w = null;
-        Scanner scan;
 
         // figuring out if file exists
         if (f.exists()) {
             try {
-                scan = new Scanner(openFileInput("itemsList.txt"));
                 w = new OutputStreamWriter(openFileOutput("itemsList.txt", MODE_PRIVATE));
-
-                // overwrite existing data with "" characters
-                while (scan.hasNextLine()) {
-                    w.write("");
-                }
                 w.close();
-                scan.close();
                 Toast.makeText(getBaseContext(), "Leftover List Cleared", Toast.LENGTH_LONG).show();
             } catch (IOException e) {
                 Toast.makeText(getBaseContext(), "IOException: " + e.getMessage(), Toast.LENGTH_SHORT).show();

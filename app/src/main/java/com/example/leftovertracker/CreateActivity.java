@@ -1,5 +1,6 @@
 package com.example.leftovertracker;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,18 +34,19 @@ public class CreateActivity extends ComponentActivity {
                 EditText servings = (EditText) findViewById(R.id.itemServings);
                 EditText daysLeft = (EditText) findViewById(R.id.itemDaysLeft);
 
-                if(validateItemInfo()){
+                if (validateItemInfo()) {
                     //need something to check for when createItem returns -1 because it will still create an item
                     id = createItem();
 
-                    if(id > 0){
-                        finish();
+                    if (id > 0) {
+                        //finish();
                         //what does finish() do? might need to have it generate Home Screen again rather than just "go back"
+                        Intent intent = new Intent(CreateActivity.this, ProfileActivity.class);
+                        startActivity(intent);
 
                     }
 
-                }
-                else {
+                } else {
                     itemName.setText("");
                     totalCals.setText("");
                     servings.setText("");
@@ -58,7 +60,7 @@ public class CreateActivity extends ComponentActivity {
         });
     }
 
-    private boolean validateItemInfo(){
+    private boolean validateItemInfo() {
         EditText itemName = (EditText) findViewById(R.id.itemName);
         EditText totalCals = (EditText) findViewById(R.id.itemCalories);
         EditText servings = (EditText) findViewById(R.id.itemServings);
@@ -86,29 +88,46 @@ public class CreateActivity extends ComponentActivity {
         String[] arr;
 
         // checking if file doesn't exist
-        if(!f.exists()) {
+        if (!f.exists()) {
             id = 1;
 
             try {
                 w = new OutputStreamWriter(openFileOutput("itemsList.txt", MODE_PRIVATE));
                 w.write(id + "," + itemName + "," + itemCalories + "," + itemServings + "," + itemDaysLeft);
                 w.close();
-            }
-            catch(IOException e) {
+            } catch (IOException e) {
                 Toast.makeText(getBaseContext(), "IOException: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
 
-        }
-        else {
+        } else if (f.exists() && isItemListEmpty()) {
+            try {
+                scan = new Scanner(openFileInput("itemsList.txt"));
+
+                id = 1;
+
+                scan.close();
+
+                // use append in this case to avoid overwriting existing data
+                w = new OutputStreamWriter(openFileOutput("itemsList.txt", MODE_PRIVATE));
+                w.write(id + "," + itemName + "," + itemCalories + "," + itemServings + "," + itemDaysLeft);
+                w.close();
+
+
+            } catch (IOException e) {
+                Toast.makeText(getBaseContext(), "IOException: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+
+
+        } else {
             try {
                 scan = new Scanner(openFileInput("itemsList.txt"));
 
                 while (scan.hasNextLine()) {
                     str = scan.nextLine();
                 }
-                if(str != null) {
+                if (str != null) {
                     arr = str.split(",");
-                    if(arr.length == 5) {
+                    if (arr.length == 5) {
                         id = Integer.parseInt(arr[0]) + 1;
                     }
                 }
@@ -127,5 +146,24 @@ public class CreateActivity extends ComponentActivity {
             }
         }
         return id;
+    }
+
+    boolean isItemListEmpty() {
+        Scanner scan;
+
+        try {
+            scan = new Scanner(openFileInput("itemsList.txt"));
+
+            if (!scan.hasNextLine()) {
+                scan.close();
+                return true;
+            }
+
+            scan.close();
+        } catch (IOException e) {
+            Toast.makeText(getBaseContext(), "IOException: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+
+        return false;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.leftovertracker;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,4 +52,5 @@ public class leftoverAdapter extends RecyclerView.Adapter<leftoverAdapter.MyView
             tvDays = itemView.findViewById(R.id.rDaysLeft);
         }
     }
+
 }

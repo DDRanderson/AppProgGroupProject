@@ -5,6 +5,7 @@ import android.content.res.AssetManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,9 +23,8 @@ import java.util.Scanner;
 
 public class ProfileActivity extends ComponentActivity {
 
-
     private Account profileInfo;
-    private AssetManager assets;
+    //private AssetManager assets;
 
     ArrayList<LeftoverList> LeftoverLists = new ArrayList<>();
     @Override
@@ -36,9 +36,9 @@ public class ProfileActivity extends ComponentActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.homescreen);
-        assets = getAssets();
-        //setupProfile();
-        setupProfile2();
+        //assets = getAssets();
+        setupProfile();
+        //setupProfile2();
         setupButtons();
 
         RecyclerView recyclerView = findViewById(R.id.mRecyclerView);
@@ -46,6 +46,7 @@ public class ProfileActivity extends ComponentActivity {
         leftoverAdapter adapter = new leftoverAdapter(this, LeftoverLists);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this ));
+
     }
 
     private void setupLeftOverList(){
@@ -64,40 +65,50 @@ public class ProfileActivity extends ComponentActivity {
         for(int i = 0; i < leftOverNames.length; i++){
             LeftoverLists.add(new LeftoverList(leftOverNames[i], leftOverDays[i]));
         }
+        setContentView(R.layout.homescreen);
+        profileInfo = null;
+        //assets = getAssets();
+        setupProfile();
+        //setupProfile2();
     }
 
     public void setupProfile(){
+        /*
+        * This sets up the profiles it writes
+        * to the accounts.txt to be called from the
+        * login screen
+        * */
         Intent intent = getIntent();
         int id = intent.getIntExtra("id", -1);
-
+        File f = new File(getFilesDir().getAbsolutePath() + "/accounts.txt");
         //profileInfo = new Account(id, assets);
 
         Scanner scan;
         String str = "";
         String [] arr = null;
         try {
-            scan = new Scanner(assets.open("accounts.txt"));
-            while(scan.hasNext()){
-
-                //EditText t = (EditText) findViewById(R.id.inputName);
-
-                str = scan.nextLine();
-                //t.setText(str);
-                arr = str.split(",");
-                if(Integer.parseInt(arr[0]) == id){
-                    profileInfo = new Account(id, arr[1], arr[2]);
-                    break;
+            if (f.exists()) {
+                scan = new Scanner(openFileInput("accounts.txt"));
+                while (scan.hasNext()) {
+                    str = scan.nextLine();
+                    arr = str.split(",");
+                    if (Integer.parseInt(arr[0]) == id) {
+                        profileInfo = new Account(id, arr[1], arr[2]);
+                        break;
+                    }
                 }
+                scan.close();
             }
-            scan.close();
-        }
-        catch(IOException e){
+        } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
-        TextView name = (TextView) findViewById(R.id.textView5);
-        //TextView email = (TextView) findViewById(R.id.textView1);
-        name.setText(profileInfo.getName());
-        //email.setText(profileInfo.getEmail());
+        if (profileInfo != null) {
+            TextView name = (TextView) findViewById(R.id.textView5);
+            //TextView email = (TextView) findViewById(R.id.textView1);
+            name.setText(profileInfo.getName());
+            //email.setText(profileInfo.getEmail());
+
+        }
     }
 
     private void setupProfile2(){
@@ -108,6 +119,7 @@ public class ProfileActivity extends ComponentActivity {
         TextView name = (TextView) findViewById(R.id.textView5);
         //TextView email = (TextView) findViewById(R.id.textView1);
         name.setText(profileInfo.getName());
+        //email.setText(profileInfo.getEmail());
         //email.setText(profileInfo.getEmail());
     }
 

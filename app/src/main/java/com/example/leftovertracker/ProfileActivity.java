@@ -25,6 +25,7 @@ public class ProfileActivity extends ComponentActivity {
 
     private Account profileInfo;
     //private AssetManager assets;
+    //YOYOYOYOYOY
 
     ArrayList<LeftoverList> LeftoverLists = new ArrayList<>();
     @Override

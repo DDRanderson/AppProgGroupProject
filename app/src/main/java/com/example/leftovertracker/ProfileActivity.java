@@ -65,10 +65,10 @@ public class ProfileActivity extends ComponentActivity {
         for(int i = 0; i < leftOverNames.length; i++){
             LeftoverLists.add(new LeftoverList(leftOverNames[i], leftOverDays[i]));
         }
-        setContentView(R.layout.homescreen);
+        //setContentView(R.layout.homescreen);
         profileInfo = null;
         //assets = getAssets();
-        setupProfile();
+        //setupProfile();
         //setupProfile2();
     }
 

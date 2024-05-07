@@ -19,6 +19,12 @@ public class CreateActivity extends ComponentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.createleftover);
 
+        if (savedInstanceState != null) {
+            String text = savedInstanceState.getString("textView5");
+            EditText textView5 = (EditText) findViewById(R.id.textView5);
+            textView5.setText(text);
+        }
+
         setupButtons();
     }
 
@@ -177,5 +183,13 @@ public class CreateActivity extends ComponentActivity {
             Toast.makeText(getBaseContext(), "IOException: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
         return false;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        EditText textView5 = (EditText) findViewById(R.id.textView5);
+        String text = textView5.getText().toString();
+        outState.putString("textView5", text);
     }
 }

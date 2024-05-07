@@ -181,11 +181,12 @@ public class ProfileActivity extends ComponentActivity {
                     str = scan.nextLine();
                     arr = str.split(",");
                     listOfNames.add(arr[1]);
-                    retArray = new String[listOfNames.size()];
-                    listOfNames.toArray(retArray);
-                    return retArray;
                 }
+                retArray = new String[listOfNames.size()];
+                listOfNames.toArray(retArray);
                 scan.close();
+                return retArray;
+
                 //Toast.makeText(getBaseContext(), "Leftover List Cleared", Toast.LENGTH_LONG).show();
             } catch (IOException e) {
                 Toast.makeText(getBaseContext(), "IOException: " + e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -197,7 +198,7 @@ public class ProfileActivity extends ComponentActivity {
             Toast.makeText(getBaseContext(), "List Empty", Toast.LENGTH_SHORT).show();
             return leftOverNames;
         }
-        return leftOverNames;
+
     }
 
     public String[] getLeftoverDays(){
@@ -219,11 +220,12 @@ public class ProfileActivity extends ComponentActivity {
                     str = scan.nextLine();
                     arr = str.split(",");
                     listOfDays.add(arr[4]);
-                    retArray = new String[listOfDays.size()];
-                    listOfDays.toArray(retArray);
-                    return retArray;
                 }
+                retArray = new String[listOfDays.size()];
+                listOfDays.toArray(retArray);
                 scan.close();
+                return retArray;
+
                 //Toast.makeText(getBaseContext(), "Leftover List Cleared", Toast.LENGTH_LONG).show();
             } catch (IOException e) {
                 Toast.makeText(getBaseContext(), "IOException: " + e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -235,6 +237,6 @@ public class ProfileActivity extends ComponentActivity {
             Toast.makeText(getBaseContext(), "List Empty", Toast.LENGTH_SHORT).show();
             return leftOverDays;
         }
-        return leftOverDays;
+
     }
 }

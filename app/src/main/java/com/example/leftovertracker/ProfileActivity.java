@@ -25,6 +25,7 @@ public class ProfileActivity extends ComponentActivity {
 
     private Account profileInfo;
     //private AssetManager assets;
+    //YOYOYOYOYOY
 
     ArrayList<LeftoverList> LeftoverLists = new ArrayList<>();
     @Override
@@ -124,9 +125,17 @@ public class ProfileActivity extends ComponentActivity {
     }
 
     private void setupButtons() {
+        ImageButton buttonCalendar = (ImageButton) findViewById(R.id.buttonCalendar);
         ImageButton buttonAddRecipe = (ImageButton) findViewById(R.id.buttonAddRecipe);
         ImageButton buttonClearList = (ImageButton) findViewById(R.id.trashButton);
 
+        buttonCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (ProfileActivity.this, CalendarActivity.class);
+                startActivity(intent);
+            }
+        });
         buttonAddRecipe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
